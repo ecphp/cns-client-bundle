@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace EcPhp\CnsClientBundle\Exception;
+namespace EcPhp\CnsClientBundle;
 
-use Exception;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class NotificationException extends Exception
+final class CnsClientBundle extends Bundle
 {
 }

@@ -11,22 +11,22 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Lib\CnsNotificationsBundle\Service\CnsNotificationService;
-use Lib\CnsNotificationsBundle\Service\Component\Notification;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationAttachment;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationAttachmentInterface;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationContent;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationContentInterface;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationInterface;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationRecipient;
-use Lib\CnsNotificationsBundle\Service\Component\NotificationRecipientInterface;
-use Lib\CnsNotificationsBundle\Service\NotificationServiceInterface;
+use EcPhp\CnsClientBundle\Service\NotificationService;
+use EcPhp\CnsClientBundle\Service\Component\Notification;
+use EcPhp\CnsClientBundle\Service\Component\NotificationAttachment;
+use EcPhp\CnsClientBundle\Service\Component\NotificationAttachmentInterface;
+use EcPhp\CnsClientBundle\Service\Component\NotificationContent;
+use EcPhp\CnsClientBundle\Service\Component\NotificationContentInterface;
+use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
+use EcPhp\CnsClientBundle\Service\Component\NotificationRecipient;
+use EcPhp\CnsClientBundle\Service\Component\NotificationRecipientInterface;
+use EcPhp\CnsClientBundle\Service\NotificationServiceInterface;
 
 return static function (ContainerConfigurator $container) {
     $container
         ->services()
-        ->set('cns.service', CnsNotificationService::class)
-        ->arg('$configuration', '%lib_cns_notifications%')
+        ->set('cns.service', NotificationService::class)
+        ->arg('$configuration', '%cns_client%')
         ->autowire(true)
         ->autoconfigure(true);
     $container

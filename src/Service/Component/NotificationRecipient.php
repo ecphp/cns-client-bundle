@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Lib\CnsNotificationsBundle\Service\Component;
+namespace EcPhp\CnsClientBundle\Service\Component;
 
 use JsonSerializable;
-use Lib\CnsNotificationsBundle\Exception\NotificationException;
+use EcPhp\CnsClientBundle\Exception\NotificationException;
 use StdClass;
 
 class NotificationRecipient implements JsonSerializable, NotificationRecipientInterface

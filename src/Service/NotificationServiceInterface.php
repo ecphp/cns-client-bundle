@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace Lib\CnsNotificationsBundle\Service;
+namespace EcPhp\CnsClientBundle\Service;
 
-use Lib\CnsNotificationsBundle\Service\Component\NotificationInterface;
+use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 
 interface NotificationServiceInterface
 {

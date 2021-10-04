@@ -23,49 +23,31 @@ use EcPhp\CnsClientBundle\Service\Component\NotificationRecipientInterface;
 use EcPhp\CnsClientBundle\Service\NotificationServiceInterface;
 
 return static function (ContainerConfigurator $container) {
-    $container
-        ->services()
-        ->set('cns.service', NotificationService::class)
-        ->arg('$configuration', '%cns_client%')
-        ->autowire(true)
-        ->autoconfigure(true);
-    $container
-        ->services()
-        ->alias(NotificationServiceInterface::class, 'cns.service');
+    $services = $container->services();
 
-    $container
-        ->services()
-        ->set('cns.notification', Notification::class)
-        ->autowire(true)
-        ->autoconfigure(true);
-    $container
-        ->services()
-        ->alias(NotificationInterface::class, 'cns.notification');
+    $services
+        ->defaults()
+        ->autoconfigure(true)
+        ->autowire(true);
 
-    $container
-        ->services()
-        ->set('cns.notification.recipient', NotificationRecipient::class)
-        ->autowire(true)
-        ->autoconfigure(true);
-    $container
-        ->services()
-        ->alias(NotificationRecipientInterface::class, 'cns.notification.recipient');
 
-    $container
-        ->services()
-        ->set('cns.notification.content', NotificationContent::class)
-        ->autowire(true)
-        ->autoconfigure(true);
-    $container
-        ->services()
-        ->alias(NotificationContentInterface::class, 'cns.notification.content');
+    $services
+        ->set(NotificationService::class)
+        ->alias(NotificationServiceInterface::class, NotificationService::class);
 
-    $container
-        ->services()
-        ->set('cns.notification.content.attachment', NotificationAttachment::class)
-        ->autowire(true)
-        ->autoconfigure(true);
-    $container
-        ->services()
-        ->alias(NotificationAttachmentInterface::class, 'cns.notification.content.attachment');
+    $services
+        ->set(Notification::class)
+        ->alias(NotificationInterface::class, Notification::class);
+
+    $services
+        ->set(NotificationRecipient::class)
+        ->alias(NotificationRecipientInterface::class, NotificationRecipient::class);
+
+    $services
+        ->set(NotificationContent::class)
+        ->alias(NotificationContentInterface::class, NotificationContent::class);
+
+    $services
+        ->set(NotificationAttachment::class)
+        ->alias(NotificationAttachmentInterface::class, NotificationAttachment::class);
 };

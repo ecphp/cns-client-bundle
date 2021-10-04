@@ -14,6 +14,7 @@ namespace EcPhp\CnsClientBundle\Service;
 use EcPhp\CnsClientBundle\Exception\NotificationException;
 use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
@@ -33,11 +34,11 @@ final class NotificationService implements NotificationServiceInterface
     public function __construct(
         HttpClientInterface $httpClient,
         LoggerInterface $logger,
-        array $configuration = []
+        ParameterBagInterface $parameterBag
     ) {
         $this->httpClient = $httpClient;
         $this->logger = $logger;
-        $this->configuration = $configuration;
+        $this->configuration = $parameterBag->get('cns_client');
     }
 
     public function send(NotificationInterface $notification): int

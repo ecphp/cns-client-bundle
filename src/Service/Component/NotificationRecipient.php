@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace EcPhp\CnsClientBundle\Service\Component;
 
-use JsonSerializable;
 use EcPhp\CnsClientBundle\Exception\NotificationException;
+use JsonSerializable;
 use StdClass;
 
 class NotificationRecipient implements JsonSerializable, NotificationRecipientInterface

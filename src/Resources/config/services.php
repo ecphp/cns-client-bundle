@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use EcPhp\CnsClientBundle\Service\NotificationService;
 use EcPhp\CnsClientBundle\Service\Component\Notification;
 use EcPhp\CnsClientBundle\Service\Component\NotificationAttachment;
 use EcPhp\CnsClientBundle\Service\Component\NotificationAttachmentInterface;
@@ -20,6 +19,7 @@ use EcPhp\CnsClientBundle\Service\Component\NotificationContentInterface;
 use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 use EcPhp\CnsClientBundle\Service\Component\NotificationRecipient;
 use EcPhp\CnsClientBundle\Service\Component\NotificationRecipientInterface;
+use EcPhp\CnsClientBundle\Service\NotificationService;
 use EcPhp\CnsClientBundle\Service\NotificationServiceInterface;
 
 return static function (ContainerConfigurator $container) {
@@ -29,7 +29,6 @@ return static function (ContainerConfigurator $container) {
         ->defaults()
         ->autoconfigure(true)
         ->autowire(true);
-
 
     $services
         ->set(NotificationService::class)

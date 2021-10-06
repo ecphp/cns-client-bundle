@@ -37,10 +37,29 @@ final class NotificationContent implements JsonSerializable, NotificationContent
         $this->attachment = $attachment;
     }
 
+    public function addAttachment(
+        ?string $attachmentBase64Content,
+        ?string $name,
+        ?string $mimeType,
+        ?int $length
+    ): self {
+        if (null !== $attachmentBase64Content) {
+            $attachment = clone $this->attachment;
+            $attachment
+                ->setName($name)
+                ->setMimeType($mimeType)
+                ->setLength($length)
+                ->setContentBase64($attachmentBase64Content);
+            $this->attachments[] = $attachment;
+        }
+
+        return $this;
+    }
+
     /**
      * @param array<int, UploadedFile>|null $files
      */
-    public function addAttachmentsFromUpload(array $files): self
+    public function addAttachmentsFromUpload(?array $files): self
     {
         if (null !== $files) {
             foreach ($files as $file) {

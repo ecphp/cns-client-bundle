@@ -15,6 +15,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 interface NotificationContentInterface
 {
+    public function addAttachment(
+        ?string $attachmentBase64Content,
+        ?string $name,
+        ?string $mimeType,
+        ?int $length
+    ): self;
+
     /**
      * @param array<int, UploadedFile>|null $files
      */

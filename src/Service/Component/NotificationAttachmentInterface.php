@@ -13,23 +13,23 @@ namespace EcPhp\CnsClientBundle\Service\Component;
 
 interface NotificationAttachmentInterface
 {
-    public function getContentBase64(): ?string;
+    public function getContentBase64(): string;
 
-    public function getInline(): ?bool;
+    public function getLength(): int;
 
-    public function getLength(): ?int;
+    public function getMimeType(): string;
 
-    public function getMimeType(): ?string;
+    public function getName(): string;
 
-    public function getName(): ?string;
+    public function isInline(): bool;
 
-    public function setContentBase64(?string $contentBase64): self;
+    public function setContentBase64(string $contentBase64): self;
 
-    public function setInline(?bool $inline): self;
+    public function setInline(bool $inline): self;
 
-    public function setLength(?int $length): self;
+    public function setLength(int $length): self;
 
-    public function setMimeType(?string $mimeType): self;
+    public function setMimeType(string $mimeType): self;
 
-    public function setName(?string $name): self;
+    public function setName(string $name): self;
 }

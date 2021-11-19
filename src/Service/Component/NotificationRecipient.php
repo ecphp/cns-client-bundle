@@ -17,7 +17,7 @@ use StdClass;
 
 class NotificationRecipient implements JsonSerializable, NotificationRecipientInterface
 {
-    private string $name;
+    private string $name = '';
 
     private string $smtpAddress;
 

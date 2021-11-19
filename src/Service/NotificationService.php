@@ -71,7 +71,7 @@ final class NotificationService implements NotificationServiceInterface
         }
 
         throw new NotificationException(
-            sprintf('Wrong status code from CNS: %s', $response->getStatusCode()),
+            sprintf('[CNS NOTIFICATION] Wrong status code from CNS: %s', $response->getStatusCode()),
             Response::HTTP_INTERNAL_SERVER_ERROR
         );
     }

@@ -19,18 +19,18 @@ final class NotificationContent implements JsonSerializable, NotificationContent
 {
     public const DEFAULT_LANGUAGE = 'EN';
 
-    private ?NotificationAttachmentInterface $attachment;
+    private NotificationAttachmentInterface $attachment;
 
     /**
      * @var array<NotificationAttachmentInterface>|null
      */
     private ?array $attachments = [];
 
-    private ?string $body = '';
+    private string $body;
 
-    private ?string $language = self::DEFAULT_LANGUAGE;
+    private string $language = self::DEFAULT_LANGUAGE;
 
-    private ?string $subject = '';
+    private string $subject;
 
     public function __construct(?NotificationAttachmentInterface $attachment)
     {
@@ -81,17 +81,17 @@ final class NotificationContent implements JsonSerializable, NotificationContent
         return $this->attachments;
     }
 
-    public function getBody(): ?string
+    public function getBody(): string
     {
         return $this->body;
     }
 
-    public function getLanguage(): ?string
+    public function getLanguage(): string
     {
         return $this->language;
     }
 
-    public function getSubject(): ?string
+    public function getSubject(): string
     {
         return $this->subject;
     }
@@ -107,21 +107,21 @@ final class NotificationContent implements JsonSerializable, NotificationContent
         return $content;
     }
 
-    public function setBody(?string $body): self
+    public function setBody(string $body): self
     {
         $this->body = $body;
 
         return $this;
     }
 
-    public function setLanguage(?string $language): self
+    public function setLanguage(string $language): self
     {
         $this->language = $language;
 
         return $this;
     }
 
-    public function setSubject(?string $subject): self
+    public function setSubject(string $subject): self
     {
         $this->subject = $subject;
 

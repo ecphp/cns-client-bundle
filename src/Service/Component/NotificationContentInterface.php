@@ -29,15 +29,15 @@ interface NotificationContentInterface
 
     public function getAttachments(): ?array;
 
-    public function getBody(): ?string;
+    public function getBody(): string;
 
-    public function getLanguage(): ?string;
+    public function getLanguage(): string;
 
-    public function getSubject(): ?string;
+    public function getSubject(): string;
 
-    public function setBody(?string $body): self;
+    public function setBody(string $body): self;
 
-    public function setLanguage(?string $language): self;
+    public function setLanguage(string $language): self;
 
-    public function setSubject(?string $subject): self;
+    public function setSubject(string $subject): self;
 }

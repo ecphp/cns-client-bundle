@@ -37,45 +37,6 @@ final class NotificationContent implements JsonSerializable, NotificationContent
         $this->attachment = $attachment;
     }
 
-    public function addAttachment(
-        ?string $attachmentBase64Content,
-        ?string $name,
-        ?string $mimeType,
-        ?int $length
-    ): self {
-        if (null !== $attachmentBase64Content) {
-            $attachment = clone $this->attachment;
-            $attachment
-                ->setName($name)
-                ->setMimeType($mimeType)
-                ->setLength($length)
-                ->setContentBase64($attachmentBase64Content);
-            $this->attachments[] = $attachment;
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param array<int, UploadedFile>|null $files
-     */
-    public function addAttachmentsFromUpload(?array $files): self
-    {
-        if (null !== $files) {
-            foreach ($files as $file) {
-                $attachment = clone $this->attachment;
-                $attachment
-                    ->setName($file->getClientOriginalName())
-                    ->setMimeType($file->getMimeType())
-                    ->setLength($file->getSize())
-                    ->setContentBase64(base64_encode($file->getContent()));
-                $this->attachments[] = $attachment;
-            }
-        }
-
-        return $this;
-    }
-
     public function getAttachments(): ?array
     {
         return $this->attachments;
@@ -124,6 +85,41 @@ final class NotificationContent implements JsonSerializable, NotificationContent
     public function setSubject(string $subject): self
     {
         $this->subject = $subject;
+
+        return $this;
+    }
+
+    public function withNotificationAttachment(
+        string $attachmentBase64Content,
+        string $name,
+        string $mimeType,
+        int $length
+    ): self {
+        $attachment = clone $this->attachment;
+        $attachment
+            ->setName($name)
+            ->setMimeType($mimeType)
+            ->setLength($length)
+            ->setContentBase64($attachmentBase64Content);
+        $this->attachments[] = $attachment;
+
+        return $this;
+    }
+
+    /**
+     * @param array<int, UploadedFile> $files
+     */
+    public function withNotificationAttachmentsFromUpload(array $files): self
+    {
+        foreach ($files as $file) {
+            $attachment = clone $this->attachment;
+            $attachment
+                ->setName($file->getClientOriginalName())
+                ->setMimeType($file->getMimeType())
+                ->setLength($file->getSize())
+                ->setContentBase64(base64_encode($file->getContent()));
+            $this->attachments[] = $attachment;
+        }
 
         return $this;
     }

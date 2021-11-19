@@ -15,18 +15,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 interface NotificationContentInterface
 {
-    public function addAttachment(
-        ?string $attachmentBase64Content,
-        ?string $name,
-        ?string $mimeType,
-        ?int $length
-    ): self;
-
-    /**
-     * @param array<int, UploadedFile>|null $files
-     */
-    public function addAttachmentsFromUpload(?array $files): self;
-
     public function getAttachments(): ?array;
 
     public function getBody(): string;
@@ -40,4 +28,16 @@ interface NotificationContentInterface
     public function setLanguage(string $language): self;
 
     public function setSubject(string $subject): self;
+
+    public function withNotificationAttachment(
+        string $attachmentBase64Content,
+        string $name,
+        string $mimeType,
+        int $length
+    ): self;
+
+    /**
+     * @param array<int, UploadedFile> $files
+     */
+    public function withNotificationAttachmentsFromUpload(array $files): self;
 }

@@ -13,11 +13,11 @@ namespace EcPhp\CnsClientBundle\Service\Component;
 
 interface NotificationRecipientInterface
 {
-    public function getName(): ?string;
+    public function getName(): string;
 
-    public function getSmtpAddress(): ?string;
+    public function getSmtpAddress(): string;
 
-    public function getType(): ?string;
+    public function getType(): string;
 
     public function setName(string $name): self;
 

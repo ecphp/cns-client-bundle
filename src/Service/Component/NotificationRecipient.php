@@ -17,23 +17,23 @@ use StdClass;
 
 class NotificationRecipient implements JsonSerializable, NotificationRecipientInterface
 {
-    private ?string $name = '';
+    private string $name;
 
-    private ?string $smtpAddress = '';
+    private string $smtpAddress;
 
-    private ?string $type = 'TO';
+    private string $type = 'TO';
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getSmtpAddress(): ?string
+    public function getSmtpAddress(): string
     {
         return $this->smtpAddress;
     }
 
-    public function getType(): ?string
+    public function getType(): string
     {
         return $this->type;
     }
@@ -46,30 +46,26 @@ class NotificationRecipient implements JsonSerializable, NotificationRecipientIn
         $recipient = new StdClass();
         $recipient->name = $this->getName();
         $recipient->type = $this->getType();
-
-        if (empty($this->getSmtpAddress())) {
-            throw new NotificationException('The e-mail of the recipient cannot be empty');
-        }
         $recipient->smtpAddress = $this->getSmtpAddress();
 
         return $recipient;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function setSmtpAddress(?string $smtpAddress): self
+    public function setSmtpAddress(string $smtpAddress): self
     {
         $this->smtpAddress = $smtpAddress;
 
         return $this;
     }
 
-    public function setType(?string $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 

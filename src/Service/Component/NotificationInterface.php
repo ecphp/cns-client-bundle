@@ -20,7 +20,7 @@ interface NotificationInterface
     public function getContent(): NotificationContentInterface;
 
     /**
-     * @return array|NotificationRecipient[]
+     * @return array<NotificationRecipient>
      */
-    public function getRecipients(): ?array;
+    public function getRecipients(): array;
 }

@@ -16,9 +16,9 @@ final class Notification implements NotificationInterface
     private NotificationContentInterface $content;
 
     /**
-     * @var array<NotificationRecipientInterface>|null
+     * @var array<NotificationRecipientInterface>
      */
-    private ?array $recipients;
+    private array $recipients;
 
     public function addContent(NotificationContentInterface $content): self
     {
@@ -39,7 +39,7 @@ final class Notification implements NotificationInterface
         return $this->content;
     }
 
-    public function getRecipients(): ?array
+    public function getRecipients(): array
     {
         return $this->recipients;
     }

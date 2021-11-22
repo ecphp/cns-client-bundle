@@ -8,7 +8,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">= 7.4",
-        "psr/http-client": "^1.0"
+        "symfony/http-client-contracts": "^2.4"
     },
     "require-dev": {
         "ext-json": "*",

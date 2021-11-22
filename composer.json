@@ -8,14 +8,14 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">= 7.4",
-        "ext-json": "*",
-        "ecphp/php-conventions": "dev-master",
-        "psr/http-client": "^1.0",
-        "symfony/http-foundation": "^5.3",
-        "symfony/monolog-bundle": "^3.7"
+        "psr/http-client": "^1.0"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest"
+        "ext-json": "*",
+        "ecphp/php-conventions": "dev-master",
+        "roave/security-advisories": "dev-latest",
+        "symfony/http-foundation": "^5.3",
+        "symfony/monolog-bundle": "^3.7"
     },
     "autoload": {
         "psr-4": {

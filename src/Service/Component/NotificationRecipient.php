@@ -15,11 +15,11 @@ use EcPhp\CnsClientBundle\Exception\NotificationException;
 use JsonSerializable;
 use StdClass;
 
-class NotificationRecipient implements JsonSerializable, NotificationRecipientInterface
+final class NotificationRecipient implements JsonSerializable, NotificationRecipientInterface
 {
     private string $name = '';
 
-    private string $smtpAddress;
+    private string $smtpAddress = '';
 
     private string $type = 'TO';
 
@@ -44,6 +44,7 @@ class NotificationRecipient implements JsonSerializable, NotificationRecipientIn
     public function jsonSerialize(): StdClass
     {
         $recipient = new StdClass();
+
         $recipient->name = $this->getName();
         $recipient->type = $this->getType();
         $recipient->smtpAddress = $this->getSmtpAddress();

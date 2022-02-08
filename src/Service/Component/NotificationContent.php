@@ -11,33 +11,66 @@ declare(strict_types=1);
 
 namespace EcPhp\CnsClientBundle\Service\Component;
 
-use JsonSerializable;
 use StdClass;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-final class NotificationContent implements JsonSerializable, NotificationContentInterface
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+final class NotificationContent implements NotificationContentInterface
 {
     public const DEFAULT_LANGUAGE = 'EN';
 
-    private NotificationAttachmentInterface $attachment;
-
     /**
-     * @var array<NotificationAttachmentInterface>|null
+     * @var array<int, NotificationAttachmentInterface>
      */
-    private ?array $attachments = [];
+    private array $attachments = [];
 
-    private string $body;
+    private string $body = '';
 
     private string $language = self::DEFAULT_LANGUAGE;
 
-    private string $subject;
+    private string $subject = '';
 
-    public function __construct(?NotificationAttachmentInterface $attachment)
-    {
-        $this->attachment = $attachment;
+    public function addAttachment(
+        NotificationAttachmentInterface $notificationAttachment,
+        string $attachmentBase64Content,
+        string $name,
+        int $length,
+        ?string $mimeType = null
+    ): NotificationContentInterface {
+        $this->attachments[] = $notificationAttachment
+            ->setName($name)
+            ->setMimeType($mimeType)
+            ->setLength($length)
+            ->setContentBase64($attachmentBase64Content);
+
+        return $this;
     }
 
-    public function getAttachments(): ?array
+    /**
+     * @param array<int, UploadedFile> $files
+     */
+    public function addAttachmentsFromUpload(
+        NotificationAttachmentInterface $notificationAttachment,
+        array $files
+    ): NotificationContentInterface {
+        return array_reduce(
+            $files,
+            static function (NotificationContentInterface $notificationContent, UploadedFile $file) use ($notificationAttachment): NotificationContentInterface {
+                return $notificationContent
+                    ->addAttachment(
+                        $notificationAttachment,
+                        base64_encode($file->getContent()),
+                        $file->getClientOriginalName(),
+                        $file->getSize(),
+                        $file->getMimeType()
+                    );
+            },
+            $this
+        );
+    }
+
+    public function getAttachments(): array
     {
         return $this->attachments;
     }
@@ -60,6 +93,7 @@ final class NotificationContent implements JsonSerializable, NotificationContent
     public function jsonSerialize(): StdClass
     {
         $content = new StdClass();
+
         $content->subject = $this->getSubject();
         $content->body = $this->getBody();
         $content->language = $this->getLanguage();
@@ -85,41 +119,6 @@ final class NotificationContent implements JsonSerializable, NotificationContent
     public function setSubject(string $subject): self
     {
         $this->subject = $subject;
-
-        return $this;
-    }
-
-    public function withNotificationAttachment(
-        string $attachmentBase64Content,
-        string $name,
-        string $mimeType,
-        int $length
-    ): self {
-        $attachment = clone $this->attachment;
-        $attachment
-            ->setName($name)
-            ->setMimeType($mimeType)
-            ->setLength($length)
-            ->setContentBase64($attachmentBase64Content);
-        $this->attachments[] = $attachment;
-
-        return $this;
-    }
-
-    /**
-     * @param array<int, UploadedFile> $files
-     */
-    public function withNotificationAttachmentsFromUpload(array $files): self
-    {
-        foreach ($files as $file) {
-            $attachment = clone $this->attachment;
-            $attachment
-                ->setName($file->getClientOriginalName())
-                ->setMimeType($file->getMimeType())
-                ->setLength($file->getSize())
-                ->setContentBase64(base64_encode($file->getContent()));
-            $this->attachments[] = $attachment;
-        }
 
         return $this;
     }

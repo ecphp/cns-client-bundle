@@ -19,9 +19,9 @@ interface NotificationRecipientInterface
 
     public function getType(): string;
 
-    public function setName(string $name): self;
+    public function setName(string $name): NotificationRecipientInterface;
 
-    public function setSmtpAddress(string $smtpAddress): self;
+    public function setSmtpAddress(string $smtpAddress): NotificationRecipientInterface;
 
-    public function setType(string $type): self;
+    public function setType(string $type): NotificationRecipientInterface;
 }

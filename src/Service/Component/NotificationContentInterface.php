@@ -11,11 +11,31 @@ declare(strict_types=1);
 
 namespace EcPhp\CnsClientBundle\Service\Component;
 
+use JsonSerializable;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-interface NotificationContentInterface
+interface NotificationContentInterface extends JsonSerializable
 {
-    public function getAttachments(): ?array;
+    public function addAttachment(
+        NotificationAttachmentInterface $notificationAttachment,
+        string $attachmentBase64Content,
+        string $name,
+        int $length,
+        ?string $mimeType = null
+    ): NotificationContentInterface;
+
+    /**
+     * @param array<int, UploadedFile> $files
+     */
+    public function addAttachmentsFromUpload(
+        NotificationAttachmentInterface $notificationAttachment,
+        array $files
+    ): NotificationContentInterface;
+
+    /**
+     * @return array<int, NotificationAttachmentInterface>
+     */
+    public function getAttachments(): array;
 
     public function getBody(): string;
 
@@ -23,21 +43,9 @@ interface NotificationContentInterface
 
     public function getSubject(): string;
 
-    public function setBody(string $body): self;
+    public function setBody(string $body): NotificationContentInterface;
 
-    public function setLanguage(string $language): self;
+    public function setLanguage(string $language): NotificationContentInterface;
 
-    public function setSubject(string $subject): self;
-
-    public function withNotificationAttachment(
-        string $attachmentBase64Content,
-        string $name,
-        string $mimeType,
-        int $length
-    ): self;
-
-    /**
-     * @param array<int, UploadedFile> $files
-     */
-    public function withNotificationAttachmentsFromUpload(array $files): self;
+    public function setSubject(string $subject): NotificationContentInterface;
 }

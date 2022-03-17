@@ -16,16 +16,9 @@ final class Notification implements NotificationInterface
     private NotificationContentInterface $content;
 
     /**
-     * @var array<NotificationRecipientInterface>
+     * @var array<int, NotificationRecipientInterface>
      */
-    private array $recipients;
-
-    public function addContent(NotificationContentInterface $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
+    private array $recipients = [];
 
     public function addRecipient(NotificationRecipientInterface $recipient): self
     {
@@ -42,5 +35,12 @@ final class Notification implements NotificationInterface
     public function getRecipients(): array
     {
         return $this->recipients;
+    }
+
+    public function setContent(NotificationContentInterface $content): self
+    {
+        $this->content = $content;
+
+        return $this;
     }
 }

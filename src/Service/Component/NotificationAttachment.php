@@ -16,15 +16,15 @@ use StdClass;
 
 final class NotificationAttachment implements JsonSerializable, NotificationAttachmentInterface
 {
-    private string $contentBase64;
+    private string $contentBase64 = '';
 
     private bool $inline = true;
 
     private int $length = 0;
 
-    private string $mimeType;
+    private ?string $mimeType = null;
 
-    private string $name;
+    private string $name = '';
 
     public function getContentBase64(): string
     {
@@ -36,7 +36,7 @@ final class NotificationAttachment implements JsonSerializable, NotificationAtta
         return $this->length;
     }
 
-    public function getMimeType(): string
+    public function getMimeType(): ?string
     {
         return $this->mimeType;
     }
@@ -54,6 +54,7 @@ final class NotificationAttachment implements JsonSerializable, NotificationAtta
     public function jsonSerialize(): StdClass
     {
         $content = new StdClass();
+
         $content->mimeType = $this->getMimeType();
         $content->inline = $this->isInline();
         $content->length = $this->getLength();
@@ -84,7 +85,7 @@ final class NotificationAttachment implements JsonSerializable, NotificationAtta
         return $this;
     }
 
-    public function setMimeType(string $mimeType): self
+    public function setMimeType(?string $mimeType): self
     {
         $this->mimeType = $mimeType;
 

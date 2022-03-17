@@ -17,19 +17,19 @@ interface NotificationAttachmentInterface
 
     public function getLength(): int;
 
-    public function getMimeType(): string;
+    public function getMimeType(): ?string;
 
     public function getName(): string;
 
     public function isInline(): bool;
 
-    public function setContentBase64(string $contentBase64): self;
+    public function setContentBase64(string $contentBase64): NotificationAttachmentInterface;
 
-    public function setInline(bool $inline): self;
+    public function setInline(bool $inline): NotificationAttachmentInterface;
 
-    public function setLength(int $length): self;
+    public function setLength(int $length): NotificationAttachmentInterface;
 
-    public function setMimeType(string $mimeType): self;
+    public function setMimeType(?string $mimeType): NotificationAttachmentInterface;
 
-    public function setName(string $name): self;
+    public function setName(string $name): NotificationAttachmentInterface;
 }

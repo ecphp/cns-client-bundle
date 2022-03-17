@@ -13,14 +13,14 @@ namespace EcPhp\CnsClientBundle\Service\Component;
 
 interface NotificationInterface
 {
-    public function addContent(NotificationContentInterface $content): self;
-
-    public function addRecipient(NotificationRecipientInterface $recipient): self;
+    public function addRecipient(NotificationRecipientInterface $recipient): NotificationInterface;
 
     public function getContent(): NotificationContentInterface;
 
     /**
-     * @return array<NotificationRecipient>
+     * @return array<int, NotificationRecipientInterface>
      */
     public function getRecipients(): array;
+
+    public function setContent(NotificationContentInterface $content): NotificationInterface;
 }

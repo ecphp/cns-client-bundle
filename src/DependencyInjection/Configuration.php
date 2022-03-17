@@ -21,7 +21,6 @@ final class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('cns_client');
         $rootNode = $treeBuilder->getRootNode();
 
-        /** @phpstan-ignore-next-line */
         $rootNode
             ->children()
             ->scalarNode('base_url')->isRequired()->cannotBeEmpty()->end()

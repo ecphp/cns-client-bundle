@@ -1,11 +1,11 @@
 {
     "name": "ecphp/cns-client",
-    "type": "symfony-bundle",
     "description": "Corporate Notification Service Client",
+    "license": "BSD-3-Clause",
+    "type": "symfony-bundle",
     "keywords": [
         "CNS"
     ],
-    "license": "BSD-3-Clause",
     "require": {
         "php": ">= 7.4",
         "symfony/http-client-contracts": "^2.4"
@@ -17,11 +17,18 @@
         "symfony/http-foundation": "^5.3",
         "symfony/monolog-bundle": "^3.7"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "EcPhp\\CnsClientBundle\\": "src/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true,
+            "phpro/grumphp": true,
+            "ergebnis/composer-normalize": true
+        }
+    }
 }

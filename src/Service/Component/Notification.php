@@ -13,7 +13,7 @@ namespace EcPhp\CnsClientBundle\Service\Component;
 
 final class Notification implements NotificationInterface
 {
-    private NotificationContentInterface $content;
+    private ?NotificationContentInterface $content = null;
 
     /**
      * @var array<int, NotificationRecipientInterface>
@@ -27,7 +27,7 @@ final class Notification implements NotificationInterface
         return $this;
     }
 
-    public function getContent(): NotificationContentInterface
+    public function getContent(): ?NotificationContentInterface
     {
         return $this->content;
     }
@@ -37,7 +37,7 @@ final class Notification implements NotificationInterface
         return $this->recipients;
     }
 
-    public function setContent(NotificationContentInterface $content): self
+    public function setContent(?NotificationContentInterface $content): self
     {
         $this->content = $content;
 

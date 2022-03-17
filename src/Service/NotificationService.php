@@ -14,6 +14,8 @@ namespace EcPhp\CnsClientBundle\Service;
 use EcPhp\CnsClientBundle\Exception\NotificationException;
 use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
@@ -50,7 +52,7 @@ final class NotificationService implements NotificationServiceInterface
             $response = $this
                 ->httpClient
                 ->request(
-                    'POST',
+                    Request::METHOD_POST,
                     sprintf(
                         self::API_ENDPOINT_PATTERN,
                         $this->configuration['base_url'],
@@ -69,7 +71,8 @@ final class NotificationService implements NotificationServiceInterface
             throw NotificationException::requestError($e);
         }
 
-        if (201 !== $statusCode = $response->getStatusCode()) {
+        if (Response::HTTP_CREATED !== $statusCode = $response->getStatusCode()) {
+            // TODO: Create a separate exception class, so we can test it better.
             throw NotificationException::statusCodeError($statusCode);
         }
 

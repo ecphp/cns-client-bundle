@@ -15,12 +15,12 @@ interface NotificationInterface
 {
     public function addRecipient(NotificationRecipientInterface $recipient): NotificationInterface;
 
-    public function getContent(): NotificationContentInterface;
+    public function getContent(): ?NotificationContentInterface;
 
     /**
      * @return array<int, NotificationRecipientInterface>
      */
     public function getRecipients(): array;
 
-    public function setContent(NotificationContentInterface $content): NotificationInterface;
+    public function setContent(?NotificationContentInterface $content): NotificationInterface;
 }

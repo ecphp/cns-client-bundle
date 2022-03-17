@@ -16,13 +16,21 @@
         "roave/security-advisories": "dev-latest",
         "symfony/http-foundation": "^5.3",
         "symfony/monolog-bundle": "^3.7",
-        "phpstan/phpstan-symfony": "^1.1"
+        "phpstan/phpstan-symfony": "^1.1",
+        "phpunit/phpunit": "^9.5",
+        "symfony/http-client": "^5.4",
+        "symfony/var-dumper": "^5.4"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "EcPhp\\CnsClientBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\EcPhp\\CnsClientBundle\\": "tests/"
         }
     },
     "config": {

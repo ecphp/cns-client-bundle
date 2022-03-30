@@ -1,6 +1,6 @@
 {
     "name": "ecphp/cns-client",
-    "description": "Corporate Notification Service Client",
+    "description": "CNS Client - Corporate Notification Service Client",
     "license": "BSD-3-Clause",
     "type": "symfony-bundle",
     "keywords": [
@@ -12,14 +12,13 @@
     },
     "require-dev": {
         "ext-json": "*",
-        "ecphp/php-conventions": "dev-master",
-        "roave/security-advisories": "dev-latest",
-        "symfony/http-foundation": "^5.3",
-        "symfony/monolog-bundle": "^3.7",
+        "ecphp/php-conventions": "^1",
         "phpstan/phpstan-symfony": "^1.1",
         "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest",
         "symfony/http-client": "^5.4",
-        "symfony/var-dumper": "^5.4"
+        "symfony/http-foundation": "^5.3",
+        "symfony/monolog-bundle": "^3.7"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

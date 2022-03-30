@@ -31,7 +31,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * @internal
- * @coversDefaultClass EcPhp\CnsClientBundle\
+ * @coversDefaultClass \EcPhp\CnsClientBundle\
  */
 final class NotificationServiceTest extends TestCase
 {
@@ -46,7 +46,7 @@ final class NotificationServiceTest extends TestCase
         $recipient = new NotificationRecipient();
         $recipient->setName('recipient');
 
-        $content = new NotificationContent;
+        $content = new NotificationContent();
         $content->setBody('notificationContent');
 
         $notification->addRecipient($recipient);
@@ -167,7 +167,7 @@ final class NotificationServiceTest extends TestCase
                     return new MockResponse(json_encode(['foo' => 'bar']), ['http_code' => Response::HTTP_CREATED]);
 
                 case 'testSuccessfulSend':
-                    if ($notification === null) {
+                    if (null === $notification) {
                         return new MockResponse(json_encode(['notificationId' => '123']), ['http_code' => Response::HTTP_CREATED]);
                     }
 
@@ -178,11 +178,12 @@ final class NotificationServiceTest extends TestCase
                     ];
 
                     // Check that the request body is equal to ...
-                    if ($options['body'] !== json_encode($expected)) {
+                    if (json_encode($expected) !== $options['body']) {
                         throw new Exception('Invalid request structure.');
                     }
 
                     return new MockResponse(json_encode(['notificationId' => '123']), ['http_code' => Response::HTTP_CREATED]);
+
                 case 'testTransportException':
                     throw new TransportException('Error during request');
 

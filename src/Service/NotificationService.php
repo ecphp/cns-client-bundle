@@ -43,9 +43,6 @@ final class NotificationService implements NotificationServiceInterface
         $this->configuration = $parameterBag->get('cns_client');
     }
 
-    /**
-     * @throws NotificationException
-     */
     public function send(NotificationInterface $notification): int
     {
         try {

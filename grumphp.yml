@@ -2,11 +2,6 @@ imports:
     - { resource: vendor/ecphp/php-conventions/config/php73/grumphp.yml }
 
 parameters:
-    tasks.license.holder: DG Grow
-    tasks.license.name: BSD-3-Clause # MIT and EUPL-1.2 are also available
-    tasks.license.date_from: 2021
-    tasks.phpcs.ignore_patterns: [./DoctrineMigrations/*]
-#    extra_tasks:
-#        phpunit: ~
-#    skip_tasks:
-#        - license
+    tasks.license.date_from: 2022
+    extra_tasks:
+        phpunit: ~

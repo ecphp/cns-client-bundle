@@ -11,8 +11,12 @@ declare(strict_types=1);
 
 namespace EcPhp\CnsClientBundle\Service\Component;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 interface NotificationAttachmentInterface
 {
+    public static function fromFile(UploadedFile $file): NotificationAttachmentInterface;
+
     public function getContentBase64(): string;
 
     public function getLength(): int;

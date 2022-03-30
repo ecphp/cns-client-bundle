@@ -17,19 +17,14 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 interface NotificationContentInterface extends JsonSerializable
 {
     public function addAttachment(
-        NotificationAttachmentInterface $notificationAttachment,
-        string $attachmentBase64Content,
-        string $name,
-        int $length,
-        ?string $mimeType = null
+        NotificationAttachmentInterface $notificationAttachment
     ): NotificationContentInterface;
 
     /**
-     * @param array<int, UploadedFile> $files
+     * @param array<array-key, UploadedFile> $uploadedFiles
      */
     public function addAttachmentsFromUpload(
-        NotificationAttachmentInterface $notificationAttachment,
-        array $files
+        array $uploadedFiles
     ): NotificationContentInterface;
 
     /**

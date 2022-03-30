@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace EcPhp\CnsClientBundle\Service\Component;
 
 use StdClass;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 
@@ -32,42 +31,21 @@ final class NotificationContent implements NotificationContentInterface
     private string $subject = '';
 
     public function addAttachment(
-        NotificationAttachmentInterface $notificationAttachment,
-        string $attachmentBase64Content,
-        string $name,
-        int $length,
-        ?string $mimeType = null
+        NotificationAttachmentInterface $notificationAttachment
     ): NotificationContentInterface {
-        $this->attachments[] = $notificationAttachment
-            ->setName($name)
-            ->setMimeType($mimeType)
-            ->setLength($length)
-            ->setContentBase64($attachmentBase64Content);
+        $this->attachments[] = $notificationAttachment;
 
         return $this;
     }
 
-    /**
-     * @param array<int, UploadedFile> $files
-     */
     public function addAttachmentsFromUpload(
-        NotificationAttachmentInterface $notificationAttachment,
-        array $files
+        array $uploadedFiles
     ): NotificationContentInterface {
-        return array_reduce(
-            $files,
-            static function (NotificationContentInterface $notificationContent, UploadedFile $file) use ($notificationAttachment): NotificationContentInterface {
-                return $notificationContent
-                    ->addAttachment(
-                        $notificationAttachment,
-                        base64_encode($file->getContent()),
-                        $file->getClientOriginalName(),
-                        $file->getSize(),
-                        $file->getMimeType()
-                    );
-            },
-            $this
-        );
+        foreach ($uploadedFiles as $uploadedFile) {
+            $this->addAttachment(NotificationAttachment::fromFile($uploadedFile));
+        }
+
+        return $this;
     }
 
     public function getAttachments(): array

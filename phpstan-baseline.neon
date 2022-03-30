@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Property EcPhp\\\\CnsClientBundle\\\\Service\\\\NotificationService\\:\\:\\$configuration \\(array\\<string, string\\>\\) does not accept array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: src/Service/NotificationService.php
+

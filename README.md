@@ -2,11 +2,14 @@
 
 ## Description
 
-This Symfony 5 bundle provides the necessary to send notifications using Corporate Notification System solution provided by EU.
+This Symfony bundle provides the necessary to send notifications using Corporate
+Notification System solution provided by EU.
 
 ### CNS
-Robust and easy to use service for sending emails to internal and external users.
-If offers a GDPR compliant way for external users to manage their emailing preferences.
+Robust and easy to use service for sending emails to internal and external
+users.
+If offers a GDPR compliant way for external users to manage their emailing
+preferences.
 No inherent risk is expected with the adoption of this proven solution.
 
 ## Requirements

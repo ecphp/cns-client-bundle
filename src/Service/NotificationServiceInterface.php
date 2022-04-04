@@ -11,9 +11,13 @@ declare(strict_types=1);
 
 namespace EcPhp\CnsClientBundle\Service;
 
+use EcPhp\CnsClientBundle\Exception\NotificationException;
 use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 
 interface NotificationServiceInterface
 {
+    /**
+     * @throws NotificationException
+     */
     public function send(NotificationInterface $notification): int;
 }

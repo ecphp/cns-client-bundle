@@ -13,6 +13,7 @@ namespace EcPhp\CnsClientBundle\Service\Component;
 
 use JsonSerializable;
 use StdClass;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 final class NotificationAttachment implements JsonSerializable, NotificationAttachmentInterface
 {
@@ -25,6 +26,19 @@ final class NotificationAttachment implements JsonSerializable, NotificationAtta
     private ?string $mimeType = null;
 
     private string $name = '';
+
+    public static function fromFile(UploadedFile $file): NotificationAttachmentInterface
+    {
+        $attachment = new self();
+
+        $attachment
+            ->setContentBase64(base64_encode($file->getContent()))
+            ->setName($file->getClientOriginalName())
+            ->setLength($file->getSize())
+            ->setMimeType($file->getMimeType());
+
+        return $attachment;
+    }
 
     public function getContentBase64(): string
     {

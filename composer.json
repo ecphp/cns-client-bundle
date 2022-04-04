@@ -1,5 +1,5 @@
 {
-    "name": "ecphp/cns-client",
+    "name": "ecphp/cns-client-bundle",
     "description": "CNS Client - Corporate Notification Service Client",
     "license": "BSD-3-Clause",
     "type": "symfony-bundle",
@@ -8,10 +8,10 @@
     ],
     "require": {
         "php": ">= 7.4",
+        "ext-json": "*",
         "symfony/http-client-contracts": "^2.4"
     },
     "require-dev": {
-        "ext-json": "*",
         "ecphp/php-conventions": "^1",
         "phpstan/phpstan-symfony": "^1.1",
         "phpunit/phpunit": "^9.5",

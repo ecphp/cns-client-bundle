@@ -33,4 +33,4 @@ repository:
     has_projects: false
     has_wiki: false
     name: cns-client-bundle
-    private: true
+    private: false

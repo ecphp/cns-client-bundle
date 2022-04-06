@@ -2,6 +2,6 @@ imports:
     - { resource: vendor/ecphp/php-conventions/config/php73/grumphp.yml }
 
 parameters:
-    tasks.license.date_from: 2022
+    tasks.license.date_from: 2021
     extra_tasks:
         phpunit: ~

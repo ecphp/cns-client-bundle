@@ -17,3 +17,9 @@ No inherent risk is expected with the adoption of this proven solution.
 
 * PHP >= 7.4
 * Symfony >= 5.3
+
+## Installation
+
+```shell
+composer require ecphp/cns-client-bundle
+```

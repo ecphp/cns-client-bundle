@@ -26,7 +26,7 @@ use function array_key_exists;
 
 final class NotificationService implements NotificationServiceInterface
 {
-    private const API_ENDPOINT_PATTERN = '%s/sv1/notifications?clientSystemKey=%s&clientSystemPassword=%s';
+    private const API_ENDPOINT_PATTERN = '%s/v1/notifications?clientSystemKey=%s&clientSystemPassword=%s';
 
     /**
      * @var array<string, string>

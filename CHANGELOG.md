@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0](https://github.com/ecphp/cns-client-bundle/compare/0.0.1...1.0.0)
+## [Unreleased](https://github.com/ecphp/cns-client-bundle/compare/1.0.0...HEAD)
+
+### Commits
+
+- chore: Remove dependency to docker, use Nix instead. [`6fd5322`](https://github.com/ecphp/cns-client-bundle/commit/6fd532282f1e26cb4d7923be7233f10967c98ab9)
+
+## [1.0.0](https://github.com/ecphp/cns-client-bundle/compare/0.0.1...1.0.0) - 2022-05-11
 
 ### Merged
 
@@ -14,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: Add changelog. [`17a44d3`](https://github.com/ecphp/cns-client-bundle/commit/17a44d3823cfadee6b61bd6304acc5b78e341ac2)
 - chore: Add `auto-changelog` scripts and Docker stuff. [`2a6451e`](https://github.com/ecphp/cns-client-bundle/commit/2a6451e29afa085a492d10f809c9fd5d7feb7255)
 - chore: Update license "from" date. [`bd62286`](https://github.com/ecphp/cns-client-bundle/commit/bd6228647b9ca233796417063033bca9a4108861)
 - docs: Update Maintainers. [`44c664c`](https://github.com/ecphp/cns-client-bundle/commit/44c664cbe59a815684b84f405ab2262d6f5c2773)

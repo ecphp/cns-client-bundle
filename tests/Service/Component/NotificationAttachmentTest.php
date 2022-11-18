@@ -21,6 +21,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \EcPhp\CnsClientBundle\
  */
 final class NotificationAttachmentTest extends TestCase

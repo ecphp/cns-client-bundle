@@ -20,6 +20,7 @@ use stdClass;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \EcPhp\CnsClientBundle\
  */
 final class NotificationRecipientTest extends TestCase

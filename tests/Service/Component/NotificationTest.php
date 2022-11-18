@@ -21,6 +21,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \EcPhp\CnsClientBundle\
  */
 final class NotificationTest extends TestCase

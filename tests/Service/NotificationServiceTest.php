@@ -31,6 +31,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \EcPhp\CnsClientBundle\
  */
 final class NotificationServiceTest extends TestCase

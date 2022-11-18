@@ -22,6 +22,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @internal
+ *
  * @coversDefaultClass \EcPhp\CnsClientBundle\
  */
 final class NotificationContentTest extends TestCase

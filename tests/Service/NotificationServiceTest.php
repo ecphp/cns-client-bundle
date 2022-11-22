@@ -209,7 +209,7 @@ final class NotificationServiceTest extends TestCase
             ->method('get')
             ->with('cns_client')
             ->willReturn([
-                'group_code' => 'group_code',
+                'group_code' => ['default' => 'group_code'],
                 'base_url' => 'https://example.com',
                 'system_key' => 'system_key',
                 'system_password' => 'system_password',

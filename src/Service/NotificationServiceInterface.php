@@ -19,5 +19,8 @@ interface NotificationServiceInterface
     /**
      * @throws NotificationException
      */
-    public function send(NotificationInterface $notification): int;
+    public function send(
+        NotificationInterface $notification,
+        string $groupCode = NotificationService::GROUP_CODE_DEFAULT
+    ): int;
 }

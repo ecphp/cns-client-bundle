@@ -28,6 +28,8 @@ final class NotificationService implements NotificationServiceInterface
 {
     private const API_ENDPOINT_PATTERN = '%s/v1/notifications?clientSystemKey=%s&clientSystemPassword=%s';
 
+    public const GROUP_CODE_DEFAULT = 'default';
+
     /**
      * @var array<string, string>
      */
@@ -43,8 +45,13 @@ final class NotificationService implements NotificationServiceInterface
         $this->configuration = $parameterBag->get('cns_client');
     }
 
-    public function send(NotificationInterface $notification): int
+    public function send(NotificationInterface $notification, string $groupCode = self::GROUP_CODE_DEFAULT): int
     {
+        if(!array_key_exists($groupCode, $this->configuration['group_code']))
+        {
+            throw NotificationException::unknownGroupCode($groupCode);
+        }
+
         try {
             $response = $this
                 ->httpClient
@@ -58,7 +65,7 @@ final class NotificationService implements NotificationServiceInterface
                     ),
                     [
                         'json' => [
-                            'notificationGroupCode' => $this->configuration['group_code'],
+                            'notificationGroupCode' => $this->configuration['group_code'][$groupCode],
                             'recipients' => $notification->getRecipients(),
                             'defaultContent' => $notification->getContent(),
                         ],

@@ -27,7 +27,7 @@ final class Configuration implements ConfigurationInterface
             ->scalarNode('system_key')->isRequired()->cannotBeEmpty()->end()
             ->scalarNode('system_password')->isRequired()->cannotBeEmpty()->end()
             ->arrayNode('group_code')
-                ->scalarPrototype()->end()
+            ->scalarPrototype()->end()
             ->isRequired()->cannotBeEmpty()->end();
 
         return $treeBuilder;

@@ -45,8 +45,7 @@ final class NotificationService implements NotificationServiceInterface
 
     public function send(NotificationInterface $notification, string $groupCode = NotificationServiceInterface::GROUP_CODE_DEFAULT): int
     {
-        if(!array_key_exists($groupCode, $this->configuration['group_code']))
-        {
+        if (!array_key_exists($groupCode, $this->configuration['group_code'])) {
             throw NotificationException::unknownGroupCode($groupCode);
         }
 

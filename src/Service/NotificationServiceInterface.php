@@ -16,6 +16,8 @@ use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 
 interface NotificationServiceInterface
 {
+    public const GROUP_CODE_DEFAULT = 'default';
+
     /**
      * @throws NotificationException
      */

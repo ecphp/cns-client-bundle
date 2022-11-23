@@ -48,6 +48,6 @@ final class NotificationException extends Exception
 
     public static function unknownGroupCode(string $groupCode): self
     {
-        return new self(sprintf('Unknown gropu code: \'%s\'', $groupCode));
+        return new self(sprintf("Unknown group code: '%s'", $groupCode));
     }
 }

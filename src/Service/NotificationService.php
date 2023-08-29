@@ -24,7 +24,7 @@ use function array_key_exists;
 
 final class NotificationService implements NotificationServiceInterface
 {
-    private const API_ENDPOINT_PATTERN = '%s/v1/notifications?clientSystemKey=%s&clientSystemPassword=%s';
+    private const API_ENDPOINT_PATTERN = '%s/sv1/notifications';
 
     /**
      * @var array<string, string>
@@ -44,6 +44,8 @@ final class NotificationService implements NotificationServiceInterface
     public function send(NotificationInterface $notification): int
     {
         try {
+            $authKey = base64_encode($this->configuration['system_key'] . ':' . $this->configuration['system_password']);
+
             $response = $this
                 ->httpClient
                 ->request(
@@ -51,8 +53,6 @@ final class NotificationService implements NotificationServiceInterface
                     sprintf(
                         self::API_ENDPOINT_PATTERN,
                         $this->configuration['base_url'],
-                        $this->configuration['system_key'],
-                        $this->configuration['system_password']
                     ),
                     [
                         'json' => [
@@ -60,6 +60,9 @@ final class NotificationService implements NotificationServiceInterface
                             'recipients' => $notification->getRecipients(),
                             'defaultContent' => $notification->getContent(),
                         ],
+                        'headers' => [
+                            'X-CNS-CS-Auth-Key' => $authKey
+                        ]
                     ],
                 );
         } catch (TransportExceptionInterface $e) {

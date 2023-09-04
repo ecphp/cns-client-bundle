@@ -44,7 +44,9 @@ final class NotificationService implements NotificationServiceInterface
     public function send(NotificationInterface $notification): int
     {
         try {
-            $authKey = base64_encode($this->configuration['system_key'] . ':' . $this->configuration['system_password']);
+            $authKey = base64_encode(
+                sprintf('%s:%s', $this->configuration['system_key'], $this->configuration['system_password'])
+            );
 
             $response = $this
                 ->httpClient

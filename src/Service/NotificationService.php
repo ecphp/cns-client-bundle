@@ -63,8 +63,8 @@ final class NotificationService implements NotificationServiceInterface
                             'defaultContent' => $notification->getContent(),
                         ],
                         'headers' => [
-                            'X-CNS-CS-Auth-Key' => $authKey
-                        ]
+                            'X-CNS-CS-Auth-Key' => $authKey,
+                        ],
                     ],
                 );
         } catch (TransportExceptionInterface $e) {

@@ -13,8 +13,6 @@ namespace EcPhp\CnsClientBundle\Service\Component;
 
 use StdClass;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 final class NotificationContent implements NotificationContentInterface
 {
     public const DEFAULT_LANGUAGE = 'EN';

@@ -17,8 +17,6 @@ use EcPhp\CnsClientBundle\Service\Component\NotificationInterface;
 use EcPhp\CnsClientBundle\Service\Component\NotificationRecipient;
 use PHPUnit\Framework\TestCase;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @internal
  *

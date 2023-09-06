@@ -18,8 +18,6 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @internal
  *

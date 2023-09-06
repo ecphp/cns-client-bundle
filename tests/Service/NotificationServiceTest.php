@@ -27,8 +27,6 @@ use Symfony\Component\HttpClient\Response\MockResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @internal
  *
@@ -36,7 +34,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  */
 final class NotificationServiceTest extends TestCase
 {
-    public function notificationProvider()
+    public function notificationProvider(): iterable
     {
         $notification = new Notification();
 

@@ -17,8 +17,6 @@ use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 /**
  * @internal
  *
@@ -28,7 +26,7 @@ final class NotificationAttachmentTest extends TestCase
 {
     private const FIXTURE = __DIR__ . '/../../fixtures/uploadedFile.txt';
 
-    public function constructorProvider()
+    public function provideConstructorCases(): iterable
     {
         yield [new NotificationAttachment()];
 
@@ -37,7 +35,7 @@ final class NotificationAttachmentTest extends TestCase
         yield [NotificationAttachment::fromFile($uploadedFile)];
     }
 
-    public function jsonSerializeProvider()
+    public function provideJsonSerializeCases(): iterable
     {
         $subject = new NotificationAttachment();
         $subject->setMimeType('setMimeType');
@@ -72,7 +70,7 @@ final class NotificationAttachmentTest extends TestCase
     }
 
     /**
-     * @dataProvider constructorProvider
+     * @dataProvider provideConstructorCases
      */
     public function testConstructor(NotificationAttachmentInterface $notificationAttachment)
     {
@@ -80,7 +78,7 @@ final class NotificationAttachmentTest extends TestCase
     }
 
     /**
-     * @dataProvider jsonSerializeProvider
+     * @dataProvider provideJsonSerializeCases
      */
     public function testJsonSerialize(NotificationAttachment $notificationAttachment, array $expected)
     {

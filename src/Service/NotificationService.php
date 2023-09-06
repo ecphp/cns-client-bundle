@@ -22,8 +22,6 @@ use Throwable;
 
 use function array_key_exists;
 
-// phpcs:disable Generic.Files.LineLength.TooLong
-
 final class NotificationService implements NotificationServiceInterface
 {
     private const API_ENDPOINT_PATTERN = '%s/v1/notifications?clientSystemKey=%s&clientSystemPassword=%s';

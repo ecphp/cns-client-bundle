@@ -57,4 +57,3 @@ jobs:
 
             - name: Run Grumphp
               run: vendor/bin/grumphp run --tasks=phpunit,clover_coverage
-

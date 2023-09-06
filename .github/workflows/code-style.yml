@@ -29,13 +29,12 @@ jobs:
                   git config --global core.eol lf
 
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@master
 
             - name: Install PHP
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-versions }}
-                  tools: cs2pr
 
             - name: Install dependencies
               uses: ramsey/composer-install@v2

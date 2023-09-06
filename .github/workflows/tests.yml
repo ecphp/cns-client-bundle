@@ -43,9 +43,7 @@ jobs:
                   git config --global core.eol lf
 
             - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  fetch-depth: 2
+              uses: actions/checkout@main
 
             - name: Install PHP
               uses: shivammathur/setup-php@v2
@@ -60,8 +58,3 @@ jobs:
             - name: Run Grumphp
               run: vendor/bin/grumphp run --tasks=phpunit,clover_coverage
 
-            - name: Send Scrutinizer data
-              run: |
-                  composer require scrutinizer/ocular --dev
-                  vendor/bin/ocular code-coverage:upload --format=php-clover build/logs/coverage/clover.xml
-              continue-on-error: true

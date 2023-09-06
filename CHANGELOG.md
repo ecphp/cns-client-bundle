@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.1](https://github.com/ecphp/cns-client-bundle/compare/1.0.0...1.0.1)
+## [1.0.2](https://github.com/ecphp/cns-client-bundle/compare/1.0.1...1.0.2)
+
+### Commits
+
+- chore: autofix code style [`98e1d5b`](https://github.com/ecphp/cns-client-bundle/commit/98e1d5b01d0f940b0cbef9940b7cefc6addc9af6)
+- tests: update tests accordingly [`ef10a0a`](https://github.com/ecphp/cns-client-bundle/commit/ef10a0a1ca9b6ddfa5c0f5e0b2dc442fdeb39189)
+- cs: autofix code style [`6c468b0`](https://github.com/ecphp/cns-client-bundle/commit/6c468b0c5aec9d8b9cfa74f6f0a21f397df7bee0)
+
+## [1.0.1](https://github.com/ecphp/cns-client-bundle/compare/1.0.0...1.0.1) - 2023-09-06
 
 ### Merged
 
@@ -16,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits
 
+- docs: update CHANGELOG [`25622ec`](https://github.com/ecphp/cns-client-bundle/commit/25622ec6006c46b535dbce8672e9640f641b70c5)
 - ci: refresh github actions [`4c98ac4`](https://github.com/ecphp/cns-client-bundle/commit/4c98ac4ca6b6871ba58f04081b6e801b0cc103d3)
 - chore: autofix code style [`6f7bd9a`](https://github.com/ecphp/cns-client-bundle/commit/6f7bd9a1f12cfb0bcb823bb1b7ea79dcc2f54319)
 - chore: update `.editorconfig` [`2cb5cc6`](https://github.com/ecphp/cns-client-bundle/commit/2cb5cc65400395632084b49c44fb008786e84852)

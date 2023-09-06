@@ -5,10 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/ecphp/cns-client-bundle/compare/1.0.0...HEAD)
+## [1.0.1](https://github.com/ecphp/cns-client-bundle/compare/1.0.0...1.0.1)
+
+### Merged
+
+- chore(deps): Bump cachix/install-nix-action from 18 to 20 [`#16`](https://github.com/ecphp/cns-client-bundle/pull/16)
+- chore(deps): Bump actions/cache from 3.0.8 to 3.0.11 [`#12`](https://github.com/ecphp/cns-client-bundle/pull/12)
+- chore(deps): Bump actions/cache from 3.0.5 to 3.0.8 [`#9`](https://github.com/ecphp/cns-client-bundle/pull/9)
+- chore(deps): Bump actions/cache from 3.0.2 to 3.0.5 [`#6`](https://github.com/ecphp/cns-client-bundle/pull/6)
 
 ### Commits
 
+- ci: refresh github actions [`4c98ac4`](https://github.com/ecphp/cns-client-bundle/commit/4c98ac4ca6b6871ba58f04081b6e801b0cc103d3)
+- chore: autofix code style [`6f7bd9a`](https://github.com/ecphp/cns-client-bundle/commit/6f7bd9a1f12cfb0bcb823bb1b7ea79dcc2f54319)
+- chore: update `.editorconfig` [`2cb5cc6`](https://github.com/ecphp/cns-client-bundle/commit/2cb5cc65400395632084b49c44fb008786e84852)
+- chore: get rid of scrutinizer [`436fc05`](https://github.com/ecphp/cns-client-bundle/commit/436fc054ed969ae9f6c65ae29f6fb4a5d7c2d77a)
+- chore: update License file [`051939b`](https://github.com/ecphp/cns-client-bundle/commit/051939b544319056244d27da927ac7ecbfeb50a8)
+- Replaced string interpolation with sprintf for generating the authentication key. [`6967768`](https://github.com/ecphp/cns-client-bundle/commit/6967768a1e4e9c92312e510fcd4e7946cdc4b574)
+- Added custom header X-CNS-CS-Auth-Key for Basic Authentication mechanism. [`341eb29`](https://github.com/ecphp/cns-client-bundle/commit/341eb29f1c1b4cc368e74d86d15c26e62d8409b0)
+- ci: add missing `php_fileinfo` extension [`3dfc422`](https://github.com/ecphp/cns-client-bundle/commit/3dfc422f82e674255f948f6541045bc3f3641355)
+- ci: fix branch name and add missing `code-style` workflow [`0e3c06c`](https://github.com/ecphp/cns-client-bundle/commit/0e3c06c549756adff65fbcc58196e76162733cd8)
+- cs: prettify codebase [`8d3a733`](https://github.com/ecphp/cns-client-bundle/commit/8d3a7334a69991cd37b49b6b4383c679594d1451)
+- ci: Update action workflows [`69a1b9a`](https://github.com/ecphp/cns-client-bundle/commit/69a1b9a968629db325b9e8de5819ec4414bbec91)
+- cs: Autofix code style. [`84ea0f3`](https://github.com/ecphp/cns-client-bundle/commit/84ea0f31a4e4178f325d6d0b12da217605ba8ca2)
+- docs: Update changelog. [`c11e78e`](https://github.com/ecphp/cns-client-bundle/commit/c11e78e90879840d34349ce73a1a954c82ecc99d)
 - chore: Remove dependency to docker, use Nix instead. [`6fd5322`](https://github.com/ecphp/cns-client-bundle/commit/6fd532282f1e26cb4d7923be7233f10967c98ab9)
 
 ## [1.0.0](https://github.com/ecphp/cns-client-bundle/compare/0.0.1...1.0.0) - 2022-05-11

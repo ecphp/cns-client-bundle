@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.2](https://github.com/ecphp/cns-client-bundle/compare/1.0.1...1.0.2)
+## [1.0.3](https://github.com/ecphp/cns-client-bundle/compare/1.0.2...1.0.3)
+
+### Merged
+
+- fix: update endpoint URL [`#4`](https://github.com/ecphp/cns-client-bundle/pull/4)
+
+## [1.0.2](https://github.com/ecphp/cns-client-bundle/compare/1.0.1...1.0.2) - 2023-09-06
 
 ### Commits
 
+- docs: update CHANGELOG [`d9378d8`](https://github.com/ecphp/cns-client-bundle/commit/d9378d83469f472c6251d93202cb770c8e8ebc46)
 - chore: autofix code style [`98e1d5b`](https://github.com/ecphp/cns-client-bundle/commit/98e1d5b01d0f940b0cbef9940b7cefc6addc9af6)
 - tests: update tests accordingly [`ef10a0a`](https://github.com/ecphp/cns-client-bundle/commit/ef10a0a1ca9b6ddfa5c0f5e0b2dc442fdeb39189)
 - cs: autofix code style [`6c468b0`](https://github.com/ecphp/cns-client-bundle/commit/6c468b0c5aec9d8b9cfa74f6f0a21f397df7bee0)

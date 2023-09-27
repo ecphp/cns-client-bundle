@@ -152,7 +152,7 @@ final class NotificationServiceTest extends TestCase
     private function getHttpClient(string $type, array $configuration, ?NotificationInterface $notification = null): HttpClientInterface
     {
         $callback = static function ($method, $url, $options) use ($type, $configuration, $notification): MockResponse {
-            $builtUrl = sprintf('%s/sv1/notifications', $configuration['base_url']);
+            $builtUrl = sprintf('%s/v1/notifications', $configuration['base_url']);
 
             if ($url !== $builtUrl) {
                 throw new Exception('Invalid request URL structure.');

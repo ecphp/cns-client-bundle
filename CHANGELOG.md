@@ -5,11 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.3](https://github.com/ecphp/cns-client-bundle/compare/1.0.2...1.0.3)
+## [1.0.4](https://github.com/ecphp/cns-client-bundle/compare/1.0.3...1.0.4)
+
+### Commits
+
+- chore: relax `symfony/http-client-contracts` dependencies for Symfony 6 [`5fed419`](https://github.com/ecphp/cns-client-bundle/commit/5fed41925b26373062884fb1021f3158c0668b70)
+
+## [1.0.3](https://github.com/ecphp/cns-client-bundle/compare/1.0.2...1.0.3) - 2023-09-27
 
 ### Merged
 
 - fix: update endpoint URL [`#4`](https://github.com/ecphp/cns-client-bundle/pull/4)
+
+### Commits
+
+- docs: update CHANGELOG [`82f26c5`](https://github.com/ecphp/cns-client-bundle/commit/82f26c5e8051980c53fd2a567e76bb4ee2fc5dae)
 
 ## [1.0.2](https://github.com/ecphp/cns-client-bundle/compare/1.0.1...1.0.2) - 2023-09-06
 

@@ -41,8 +41,12 @@ final class NotificationService implements NotificationServiceInterface
         $this->configuration = $parameterBag->get('cns_client');
     }
 
-    public function send(NotificationInterface $notification): int
+    public function send(NotificationInterface $notification, string $groupCode = NotificationServiceInterface::GROUP_CODE_DEFAULT): int
     {
+        if (!array_key_exists($groupCode, $this->configuration['group_code'])) {
+            throw NotificationException::unknownGroupCode($groupCode);
+        }
+
         try {
             $authKey = base64_encode(
                 sprintf('%s:%s', $this->configuration['system_key'], $this->configuration['system_password'])
@@ -58,7 +62,7 @@ final class NotificationService implements NotificationServiceInterface
                     ),
                     [
                         'json' => [
-                            'notificationGroupCode' => $this->configuration['group_code'],
+                            'notificationGroupCode' => $this->configuration['group_code'][$groupCode],
                             'recipients' => $notification->getRecipients(),
                             'defaultContent' => $notification->getContent(),
                         ],

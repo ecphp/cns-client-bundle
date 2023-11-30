@@ -9,7 +9,7 @@
     "require": {
         "php": ">= 7.4",
         "ext-json": "*",
-        "symfony/http-client-contracts": "^2.4"
+        "symfony/http-client-contracts": "^2.4 || ^3.4"
     },
     "require-dev": {
         "ecphp/php-conventions": "^1",
